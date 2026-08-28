@@ -317,6 +317,7 @@ export default function JobMonitor() {
   );
   const [entryOnly, setEntryOnly] = useState(true);
   const [remoteOnly, setRemoteOnly] = useState(true);
+  const [postedWithin, setPostedWithin] = useState("any");
   const [sourceTab, setSourceTab] = useState('all');
   const [viewTab, setViewTab] = useState('new');
   const [search, setSearch] = useState('');
@@ -396,6 +397,13 @@ export default function JobMonitor() {
     let filtered = allResults;
     if (entryOnly) filtered = filtered.filter((j) => j.isEntryLevel);
     if (remoteOnly) filtered = filtered.filter((j) => j.isRemote);
+    if (postedWithin !== "any") {
+  const cutoff = new Date();
+  if (postedWithin === "24h") cutoff.setHours(cutoff.getHours() - 24);
+  if (postedWithin === "7d") cutoff.setDate(cutoff.getDate() - 7);
+  if (postedWithin === "30d") cutoff.setDate(cutoff.getDate() - 30);
+  filtered = filtered.filter((j) => new Date(j.postedAt) > cutoff);
+}
 
     // Find new ones
     const currentSeen = seenRef.current;
