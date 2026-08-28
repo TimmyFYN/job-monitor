@@ -824,7 +824,7 @@ export default function JobMonitor() {
               set: setRemoteOnly,
             },
           ].map((f) => (
-            <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            <></><div style={{ display: "flex", flexDirection: "column", gap: 4 }}></>
   <label style={{ fontSize: 11, color: "var(--text-muted)", display: "block", marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em" }}>Posted within</label>
   <select
     value={postedWithin}
