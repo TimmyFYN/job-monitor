@@ -824,6 +824,19 @@ export default function JobMonitor() {
               set: setRemoteOnly,
             },
           ].map((f) => (
+            <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+  <label style={{ fontSize: 11, color: "var(--text-muted)", display: "block", marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em" }}>Posted within</label>
+  <select
+    value={postedWithin}
+    onChange={(e) => setPostedWithin(e.target.value)}
+    style={{ fontSize: 13, padding: "5px 8px", borderRadius: "var(--radius)", border: "0.5px solid var(--border-strong)", background: "var(--surface-2)", color: "var(--text-primary)" }}
+  >
+    <option value="any">Any time</option>
+    <option value="24h">Last 24 hours</option>
+    <option value="7d">Last 7 days</option>
+    <option value="30d">Last 30 days</option>
+  </select>
+</div>
             <label
               key={f.key}
               style={{
