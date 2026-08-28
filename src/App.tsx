@@ -140,7 +140,7 @@ const REMOTE_KW = [
   'cet',
 ];
 
-const BACKEND_URL = 'http://localhost:3737';
+const BACKEND_URL = "https://job-monitor-backend-ohgv.onrender.com";
 
 // ─── Utils ──────────────────────────────────────────────────────────────────
 function isEntryLevel(title, description = '') {
